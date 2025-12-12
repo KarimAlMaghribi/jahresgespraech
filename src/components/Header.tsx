@@ -1,20 +1,23 @@
+import { PrintButton } from './PrintButton';
+
 const navItems = [
-  { id: 'projects', label: 'Projects' },
-  { id: 'business', label: 'Business' },
-  { id: 'growth', label: 'Growth' },
+  { id: 'intro', label: 'Intro' },
+  { id: 'projects', label: 'Beiträge' },
+  { id: 'stakeholder', label: 'Business' },
+  { id: 'tech', label: 'Tech' },
   { id: 'engagement', label: 'Engagement' },
-  { id: 'outlook', label: 'Outlook' }
+  { id: 'outlook', label: 'Ausblick' }
 ];
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-surface/90 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 md:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Jahresgespräch</p>
-          <h1 className="text-lg font-bold text-slate-900">Rück- & Ausblick</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Jahresrückblick 2025</p>
+          <h1 className="text-lg font-bold text-slate-900">Karim Rakia · Senior Engineering Impact</h1>
         </div>
-        <nav className="hidden gap-3 md:flex">
+        <nav className="hidden items-center gap-3 md:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -24,6 +27,7 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <PrintButton />
         </nav>
       </div>
     </header>
