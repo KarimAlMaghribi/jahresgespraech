@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ElementType, ReactNode } from 'react';
 import { Badge } from './Badge';
 
 type CardProps = {
@@ -7,12 +7,20 @@ type CardProps = {
   badge?: string;
   badgeColor?: 'primary' | 'secondary' | 'neutral';
   icon?: string;
+  href?: string;
   children: ReactNode;
 };
 
-export function Card({ title, subtitle, badge, badgeColor = 'neutral', icon, children }: CardProps) {
+export function Card({ title, subtitle, badge, badgeColor = 'neutral', icon, href, children }: CardProps) {
+  const Wrapper: ElementType = href ? 'a' : 'div';
+
   return (
-    <div className="card-shadow relative overflow-hidden rounded-2xl border border-slate-100 bg-white/90 p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <Wrapper
+      href={href}
+      target={href ? '_blank' : undefined}
+      rel={href ? 'noreferrer noopener' : undefined}
+      className="card-shadow relative block overflow-hidden rounded-2xl border border-slate-100 bg-white/90 p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+    >
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-80" aria-hidden />
       <div className="mb-4 flex items-start justify-between gap-4">
         <div className="flex items-start gap-3">
@@ -25,6 +33,6 @@ export function Card({ title, subtitle, badge, badgeColor = 'neutral', icon, chi
         {badge ? <Badge color={badgeColor}>{badge}</Badge> : null}
       </div>
       <div className="space-y-3 text-sm text-slate-700">{children}</div>
-    </div>
+    </Wrapper>
   );
 }
