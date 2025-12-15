@@ -1,224 +1,165 @@
 import { Hero } from './components/Hero';
 import { ImpactSection } from './components/ImpactSection';
-import { LeadProject } from './components/LeadProject';
-import { Roadmap } from './components/Roadmap';
 import { Header } from './components/Header';
-import { SkillPillar } from './components/SkillPillar';
 import { Timeline } from './components/Timeline';
+import { Section } from './components/Section';
+import { RegressStory } from './components/RegressStory';
+import { AttributeChecklist } from './components/AttributeChecklist';
 
 const impactStats = [
   {
-    label: 'Leitprojekt',
-    value: 'Regressystem als skalierbare Plattform',
-    detail: 'End-to-end in kurzer Zeit: Rust, React, Docker, Azure OpenAI, Vektor-DB, SharePoint & PDF-Ingestion.'
+    label: 'Regressystem',
+    value: 'MVP in Wochen → produktiv nach 4 Monaten',
+    detail: 'Gestopptes Projekt mit Stefan (PO) neu entschieden, gebaut und an Allianz übergeben.'
   },
   {
-    label: 'Arbeitslast & Verlässlichkeit',
+    label: 'Betrieb & Sicherheit',
+    value: 'Pentest ohne Findings',
+    detail: 'Architektur, Monitoring, Prompt-Governance, Rollbacks und Dokumentation bereitgestellt.'
+  },
+  {
+    label: 'Auslastung & Fokus',
     value: '>226h Mehrarbeit · volle Auslastung 2025',
-    detail: 'Ø > 40h/Woche, kaum Krankheit – Priorisierung klar dokumentiert.'
-  },
-  {
-    label: 'Ownership',
-    value: 'Architektur + Betrieb + Governance',
-    detail: 'Mandantenfähig, pipeline-basiert, mit Monitoring, Prompt-Governance und Rollbacks.'
+    detail: 'Priorisiert auf Delivery, kaum Krankheitstage, klare Transparenz für Stakeholder.'
   }
 ];
 
-const leadSteps = [
+const regressPhases = [
   {
-    title: 'Problem',
-    detail: 'Regressfälle ohne robuste Pipeline, heterogene Quellen (PDF, SharePoint) und hoher Zeitdruck.',
-    emphasis: 'Umsetzung musste in Wochen stehen'
+    phase: 'Neustart',
+    title: 'Projektstopp abgewendet',
+    detail: 'Allianz-Anforderungen konnten zunächst nicht bedient werden. Entscheidung: Neustart als MVP, statt Abschaltung.',
+    outcome: 'Ownership übernommen, Erwartungen klar neu gesteckt.',
+    meta: 'Woche 0'
   },
   {
-    title: 'Lösung',
-    detail: 'Mandantenfähige Plattform mit Rust-Services, React-UI, Vektor-Datenbank, PDF-Ingestion und Azure OpenAI.',
-    emphasis: 'Modular, pipeline-basiert, containerisiert'
+    phase: 'MVP-Entscheidung',
+    title: 'In Tagen abgestimmt mit Stefan (PO)',
+    detail: 'Schlanke Architektur entworfen: Rust-Services, React-UI, Vektor-DB, PDF/SharePoint-Ingestion, Azure OpenAI.',
+    outcome: 'Storyline abgestimmt, Erfolgskriterien messbar gemacht.',
+    meta: 'Woche 1'
   },
   {
-    title: 'Wirkung',
-    detail: 'Plattform-ready Basis für weitere Use Cases, klare Governance und Betrieb aus einer Hand.',
-    emphasis: 'Skalierbar für zukünftige Produkte'
+    phase: 'Umsetzung',
+    title: 'MVP in wenigen Wochen umgesetzt',
+    detail: 'Pipelines, UI und Betrieb parallel gebaut. Frühe Demos mit Allianz, Feedback unmittelbar eingearbeitet.',
+    outcome: 'Vertrauen gewonnen – Weiterentwicklung freigegeben.',
+    meta: 'Woche 2–6'
+  },
+  {
+    phase: 'Produktionsreife',
+    title: 'Pentest bestanden, Übergabe erfolgt',
+    detail: 'Nach vier Monaten produktionsfähig, Pentest ohne Sicherheitslücken, Dokumente & Testlauf für Allianz bereitgestellt.',
+    outcome: 'Tool akzeptiert, Betrieb und Weiterentwicklung gesichert.',
+    meta: 'Monat 4'
   }
 ];
 
-const leadStack = [
-  { label: 'Rust' },
-  { label: 'React' },
-  { label: 'Docker & Swarm' },
-  { label: 'Azure OpenAI' },
-  { label: 'Vektor-Datenbank' },
-  { label: 'PDF-Ingestion' },
-  { label: 'SharePoint' },
-  { label: 'Monitoring & Observability' }
+const regressHighlights = [
+  { label: 'Governance', value: 'Prompt-Templates, Logging, Rollbacks' },
+  { label: 'Plattform', value: 'Mandantenfähig, pipeline-basiert' },
+  { label: 'Betrieb', value: 'Monitoring, Observability, Runbooks' }
 ];
 
-const leadHighlights = [
-  { label: 'Aufbauzeit', value: 'Wochen statt Monate' },
-  { label: 'Plattform', value: 'Mandantenfähig & modular' },
-  { label: 'Governance', value: 'Prompt-Templates, Rollbacks, Logging' }
+const companyTimeline = [
+  {
+    title: 'Jan – Okt 2025',
+    detail: 'API 2.0 mit AFM Quality gehärtet, Controlling Tool im laufenden Betrieb stabil gehalten.',
+    meta: 'Stabilisierung'
+  },
+  {
+    title: 'Okt – Dez 2025',
+    detail: 'Regressystem von MVP zu Produktion geführt, API 2.0 Beratung, Controlling Tool weitergeführt.',
+    meta: 'Delivery & Scale'
+  }
 ];
 
 const strategicDelivery = [
   {
-    title: 'AFM API 2.0 technisch vorangetrieben',
-    subtitle: 'Stabilität, Sicherheit, Klarheit in der Integration',
+    title: 'API 2.0 / AFM Quality',
+    subtitle: 'Integration entschlackt, Risiken reduziert',
     badge: 'Delivery',
     icon: '✅',
     points: [
-      'API-Governance etabliert (Versionierung, Breaking-Change-Gates, Dokumentation).',
-      'Performance über Caching-Strategie und schlanke Payloads verbessert.',
-      'Stakeholder-Sessions geführt, Verantwortlichkeiten und Roadmap transparent gemacht.'
+      'Versionierung, Gates für Breaking Changes und klare Dokumentation etabliert.',
+      'Performance durch Caching-Strategie und schlanke Payloads verbessert.',
+      'Quality-Sessions mit AFM, Verantwortung transparent gemacht.'
     ]
   },
   {
-    title: 'Decision Engine Architektur (RAG + Vektor-DB)',
-    subtitle: 'Kognitive Suche auf harmonisierten Wissensquellen',
-    badge: 'Innovation',
+    title: 'Decision Engine',
+    subtitle: 'RAG + Vektor-DB als Entscheidungsschicht',
+    badge: 'Architecture',
     icon: '🧠',
     points: [
-      'Relevanz-Scoring und Guardrails gebaut, Evaluations integriert.',
-      'Wissensquellen vektorisiert, um schnelle Antwortqualität sicherzustellen.',
-      'Tech-Demos vorbereitet, Business-Mehrwert sichtbar gemacht.'
+      'Relevanz-Scoring, Guardrails und Evaluations integriert.',
+      'Harmonisierte Wissensquellen, schnelle Antwortqualität.',
+      'Tech-Demos mit Businessfokus vorbereitet.'
     ]
   },
   {
-    title: 'Controlling Tool neu ausgerichtet',
-    subtitle: 'Architektur für Skalierung und Wartbarkeit',
+    title: 'Controlling Tool',
+    subtitle: 'Regelbetrieb und Sicherheit abgesichert',
     badge: 'Reliability',
     icon: '💼',
     points: [
-      'Architektur-Review durchgeführt, kritische Pfade gehärtet und dokumentiert.',
-      'Automatisierte Checks und Deployments ergänzt, Run-Kosten gesenkt.',
-      'Regelmäßige Syncs mit Controlling-Team zur Priorisierung.'
+      'Frontend-Code-Reviews mit Dima, Deployments für stabilen Betrieb.',
+      'Architektur und Run-Kosten transparent gemacht.',
+      'Testlauf für neue Vision vorbereitet – koppelt perspektivisch ans Regressystem.'
     ]
   }
 ];
 
-const innovationItems = [
+const controllingDetails = [
+  'Regelmäßige Reviews mit Dima, Frontend-Qualität und Build-Pipeline gehärtet.',
+  'Deployments und Betrieb gesichert, klare Verantwortlichkeiten kommuniziert.',
+  'Vision mit Jonathan: Vektorisierung als Basis für Prompt-Analysen, mögliche Kopplung mit Regressystem – Testlauf vorbereitet.'
+];
+
+const genAIItems = [
   {
-    title: 'Plattformökonomische Idee eingebracht',
-    subtitle: 'Regressystem als Keimzelle für Produkte',
-    icon: '💡',
-    detail: 'Mandantenfähige Architektur eröffnet Monetarisierung und weitere Use Cases.',
-    badge: 'Ownership'
-  },
-  {
-    title: 'RAG & Vektor-Datenbanken operationalisiert',
-    subtitle: 'Saubere Guardrails, Evaluations und Governance',
+    title: 'Prompt-Pipelines & Governance',
+    subtitle: 'End-to-End-Flows statt nur Vektoren',
+    badge: 'AI Delivery',
     icon: '🧭',
-    detail: 'Sichere AI-Nutzung durch Prompt-Templates, Logging und rollback-fähige Pipelines.',
-    badge: 'Architecture'
-  }
-];
-
-const businessItems = [
-  {
-    title: 'Generali: Tool-Vorstellung initiiert',
-    subtitle: 'Eigenständig vorbereitet und Folgeworkshops platziert',
-    icon: '🤝',
-    detail: 'Proaktive Demo des Regressystems, um Mehrwert früh sichtbar zu machen.',
-    badge: 'Business Impact'
-  },
-  {
-    title: 'Austausch mit Business Line Lead',
-    subtitle: 'Gespräche mit Mohamad Amara & Michael Gutbier',
-    icon: '🗣️',
-    detail: 'Plattformökonomie und Monetarisierung abgestimmt, Erwartungen synchronisiert.',
-    badge: 'Strategie'
-  }
-];
-
-const skills = [
-  {
-    title: 'DevOps & Containerisierung',
-    icon: '🔧',
-    items: [
-      'Docker Swarm, Portainer & Secrets aufgebaut.',
-      'CI/CD mit Security- und Drift-Checks erweitert.',
-      'Observability und Dashboards für Services etabliert.'
+    points: [
+      'Guardrails, Logging und Rollback-fähige Templates etabliert.',
+      'Evaluations integriert, um Qualität messbar zu halten.',
+      'Anbindung an Direktion kommuniziert – Nutzung sicher und nachvollziehbar.'
     ]
   },
   {
-    title: 'Cyber Security / API Security',
-    icon: '🔐',
-    items: [
-      'OAuth2, Zero-Trust-Prinzipien und Token-Handling vertieft.',
-      'Security-Gates & Policy-as-Code evaluiert.',
-      'Playbooks für sichere Integration erstellt.'
-    ]
-  },
-  {
-    title: 'Rust',
-    icon: '🦀',
-    items: [
-      'Microservice-Schnittstellen und Error-Handling strukturiert.',
-      'Performance-Tuning mit async & tracing umgesetzt.',
-      'Team-Enablement durch Pairing & Codebeispiele.'
+    title: 'Plattformökonomie vorstellen',
+    subtitle: 'Regressystem als Keimzelle für Produkte',
+    badge: 'Story',
+    icon: '🌐',
+    points: [
+      'Idee bei Mohamad Amara, Moritz Moll, Michael Gutbier platziert.',
+      'Präsentations-Webseite gebaut und geteilt: https://sepromarketplace.vercel.app/.',
+      'Monetarisierungspfad diskutiert, Anschluss an Allianz vorbereitet.'
     ]
   }
 ];
 
-const engagement = [
-  {
-    title: 'Vorlesung Universität Leipzig',
-    detail: 'Wissensweitergabe zu moderner Softwarearchitektur und AI-gestützter Entwicklung.',
-    meta: 'Community'
-  },
-  {
-    title: 'Codebuzz Leipzig mitorganisiert (2025/2026)',
-    detail: 'adesso repräsentiert und Austausch zwischen Engineering-Teams gestärkt.',
-    meta: 'Brand & Networking'
-  },
-  {
-    title: 'Hohe Verlässlichkeit',
-    detail: 'Volle Auslastung, Ø > 40h/Woche, kaum Krankheit – Präsenz und Priorität auf Delivery.',
-    meta: 'Commitment'
-  }
+const attributes = [
+  { label: 'Ownership', detail: 'Übernehme Architektur, Betrieb und Kommunikation in einer Hand.' },
+  { label: 'Entscheidungsstärke', detail: 'Treffe Entscheidungen schnell, sichtbar und dokumentiert – wie beim Regressystem-MVP.' },
+  { label: 'Struktur & Storytelling', detail: 'Komplexe Themen in Phasen und Leitfragen übersetzen, um Stakeholder mitzunehmen.' },
+  { label: 'Delivery-Fokus', detail: 'Arbeite sichtbar mit klaren Demos, Prototypen und Produktionsübergaben.' },
+  { label: 'Sicherheit & Governance', detail: 'Pentest-fähige Lösungen mit Guardrails, Logging und Runbooks bereitstellen.' },
+  { label: 'Team Enablement', detail: 'Reviews, Pairing und Beispielcode, um Geschwindigkeit und Qualität zu erhöhen.' },
+  { label: 'Plattformdenken', detail: 'Stelle Wiederverwendung und Mandantenfähigkeit über Einzel-Features.' },
+  { label: 'Direktionsnähe', detail: 'Entscheidungen und Fortschritt transparent an Management und PO zurückspielen.' }
 ];
 
-const roadmapSteps = [
-  {
-    label: 'Architekturverantwortung ausbauen',
-    items: [
-      'Entscheidungswege beschleunigen und Guardrails definieren.',
-      'Mehr Shared Assets (Templates, Playbooks) bereitstellen.',
-      'Architektur-Reviews für neue Produkte übernehmen.'
-    ]
-  },
-  {
-    label: 'Plattform konkretisieren',
-    items: [
-      'Regressystem als Produkt positionieren und Mandanten onboarden.',
-      'Geschäftsmodelle und Monetarisierung mit Business Line finalisieren.',
-      'Skalierungspfade (Security, Multi-Region) vorbereiten.'
-    ]
-  },
-  {
-    label: 'Sichtbarkeit & Community',
-    items: [
-      'Demos, Lightning Talks und Playbooks verstärken.',
-      'Community-Engagement (Codebuzz, Universität) fortführen.',
-      'Security & Plattformarchitektur gezielt vertiefen.'
-    ]
-  }
-];
-
-function IntroNote() {
+function Footer() {
   return (
-    <section
-      id="strategic-delivery"
-      className="section-gradient angled-surface rounded-3xl border border-slate-100/70 p-6 text-sm text-slate-700 shadow-sm"
-    >
-      <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Storyline</p>
-        <p className="text-base font-semibold text-slate-900">Regressystem als Leitprojekt – alles ordnet sich darum.</p>
-        <p>
-          Inhalte sind nach Wirkung und Ownership geclustert: Strategic Delivery, Innovation & Ownership, Business Impact,
-          Growth & Engineering, Engagement & Sichtbarkeit sowie Vision 2026. Redundanz reduziert, Kernbotschaften klar.
-        </p>
+    <footer className="mt-8 rounded-3xl border border-slate-100 bg-white/90 p-6 text-sm text-slate-600 shadow-sm">
+      <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+        <p className="font-semibold text-slate-900">Kontext</p>
+        <p>Gespräch mit Dr. Marco Peisker · Jahresgespräch 2025 · Fokus: Regressystem als Referenz.</p>
       </div>
-    </section>
+    </footer>
   );
 }
 
@@ -227,74 +168,79 @@ export default function App() {
     <div className="min-h-screen bg-surface text-slate-900">
       <Header />
       <main className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 md:gap-12 md:px-8 lg:py-16">
+        {/* 1. Hero */}
         <Hero
           name="Karim Rakia"
-          title="Senior-Track · Architektur & Delivery"
-          statement="Klare Story: Regressystem als skalierbare Plattform aufgebaut, weitere Kernprojekte stabilisiert und Business-Mehrwert sichtbar gemacht. Fokus: Wirkung, Plattformdenken und Governance."
+          title="Architektur & Delivery 2025"
+          statement="Leitprojekt Regressystem neu entschieden, in Wochen als MVP gebaut und nach vier Monaten produktionsreif übergeben. Fokus auf Wirkung, Plattformdenken und Governance."
           stats={impactStats}
         />
 
-        <LeadProject
-          title="Leitprojekt: Regressystem"
-          subtitle="End-to-end aufgebaut: Rust-Services, React-UI, Vektor-DB, PDF-Ingestion, SharePoint, Azure OpenAI. Architektur, Umsetzung und Betrieb aus einer Hand."
-          badge="Skalierbare Plattform"
-          href="https://www.regress.adesso.claims"
-          steps={leadSteps}
-          stack={leadStack}
-          highlights={leadHighlights}
+        {/* 2. Leitprojekt Regressystem */}
+        <RegressStory
+          phases={regressPhases}
+          highlights={regressHighlights}
+          decision="Abbruch verhindert – MVP-Storyline mit Stefan (PO) abgestimmt, Allianz früh eingebunden."
+          emphasis="Pipeline, UI und Betrieb parallel aufgebaut. Pentest ohne Findings, Übergabe an Allianz dokumentiert."
         />
 
-        <IntroNote />
+        {/* 3. Zeitliche Gesamt-Timeline */}
+        <Timeline
+          id="gesamt-timeline"
+          eyebrow="Timeline"
+          title="Jahresverlauf 2025"
+          description="Klare Phasen: Stabilisierung der Bestandsprojekte, dann Fokussierung auf Regressystem und API-Beratung."
+          items={companyTimeline}
+        />
 
+        {/* 4. Strategic Delivery */}
         <ImpactSection
-          id="delivery"
+          id="strategic-delivery"
           eyebrow="Strategic Delivery"
-          title="Architektur-getriebene Delivery"
-          description="Kompakte Übersicht der Kernbeiträge – jede Karte zeigt Problem, Lösung, Wirkung im Kern zusammengefasst."
+          title="API, Decision Engine, Controlling – kompakt"
+          description="Schlüsselinitiativen, die Stabilität, Sicherheit und Geschwindigkeit sichern."
           columns={3}
           items={strategicDelivery}
         />
 
+        {/* 5. Controlling Tool */}
+        <Section
+          id="controlling"
+          eyebrow="Controlling Tool"
+          title="Betrieb gesichert, Vision vorbereitet"
+          description="Regelmäßige Reviews, Deployments und eine neue Vision, die Analyse und Regressystem koppeln kann."
+        >
+          <div className="grid gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <p className="text-sm text-slate-700">
+              Das Tool bleibt im laufenden Betrieb stabil: Deployments sichern Verfügbarkeit, die Architektur ist dokumentiert, und
+              Code-Reviews halten die Frontend-Qualität hoch. Zusammen mit Jonathan entsteht eine neue Vision, die Daten nicht nur
+              vektorisiert, sondern für Prompt-Analysen nutzt und perspektivisch ans Regressystem andockt. Testlauf ist vorbereitet.
+            </p>
+            <ul className="grid gap-2 text-sm text-slate-700 md:grid-cols-2">
+              {controllingDetails.map((detail) => (
+                <li key={detail} className="flex gap-2">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-primary" aria-hidden />
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Section>
+
+        {/* 6. GenAI & Plattformansatz */}
         <ImpactSection
-          id="innovation"
-          eyebrow="Innovation & Ownership"
-          title="Plattformdenken und AI-Governance"
-          description="Ideen und Architekturen, die über Einzelprojekte hinaus wirken."
-          items={innovationItems}
+          id="genai"
+          eyebrow="GenAI & Plattform"
+          title="End-to-End AI-Flows und Plattformökonomie"
+          description="Governance, Prompt-Pipelines und Monetarisierungspfad – abgestimmt mit Direktion und Business Leads."
+          items={genAIItems}
         />
 
-        <ImpactSection
-          id="stakeholder"
-          eyebrow="Business & Stakeholder"
-          title="Wirkung über Technologie hinaus"
-          description="Beziehungsarbeit und strategische Platzierung der Plattform-Idee."
-          items={businessItems}
-        />
+        {/* 7. Arbeitsweise & Eigenschaften */}
+        <AttributeChecklist items={attributes} />
 
-        <ImpactSection
-          id="growth"
-          eyebrow="Growth & Engineering"
-          title="Skill-Pillars statt Textwüste"
-          description="Fokusfelder 2025 mit klarem Nutzen für Delivery, Security und Performance."
-          footer={<SkillPillar skills={skills} />}
-          items={[]}
-        />
-
-        <Timeline
-          id="engagement"
-          eyebrow="Engagement & Sichtbarkeit"
-          title="Event-Timeline & Präsenz"
-          description="Aktivitäten, die Community, Kunden und Team verbinden."
-          items={engagement}
-        />
-
-        <Roadmap
-          id="vision"
-          eyebrow="Vision 2026"
-          title="Roadmap für den nächsten Senior-Schritt"
-          description="Konkrete Milestones, um Wirkung und Ownership weiter auszubauen."
-          steps={roadmapSteps}
-        />
+        {/* 8. Footer */}
+        <Footer />
       </main>
     </div>
   );
