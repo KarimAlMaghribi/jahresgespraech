@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Badge } from './components/Badge';
 import { Card } from './components/Card';
 import { Header } from './components/Header';
-import { PrintButton } from './components/PrintButton';
 import { Section } from './components/Section';
 
 const listItem = (text: string) => (
@@ -31,6 +30,7 @@ const projectHighlights = [
     icon: '🛠️',
     badge: 'Architecture',
     badgeColor: 'secondary' as const,
+    href: 'https://www.regress.adesso.claims',
     items: [
       'End-to-end Lösung konzipiert und umgesetzt – von Daten-Ingestion bis UI.',
       'Rust-Services für Reliability & Speed, Vektor-DB für schnelle Ähnlichkeitssuche.',
@@ -87,7 +87,11 @@ const techFocus = [
   {
     title: 'Cyber Security',
     icon: '🔐',
-    items: ['OAuth2-Flows, Zero-Trust-Prinzipien und Token-Handling vertieft', 'Security-Gates & Policy-as-Code evaluiert', 'Praktische Playbooks für sichere Integration erstellt']
+    items: [
+      'OAuth2-Flows, Zero-Trust-Prinzipien und Token-Handling vertieft',
+      'Security-Gates & Policy-as-Code evaluiert',
+      'Praktische Playbooks für sichere Integration erstellt'
+    ]
   },
   {
     title: 'Rust',
@@ -107,7 +111,7 @@ const engagement = [
     title: 'Codebuzz Leipzig mitorganisiert',
     detail: 'Community-Repräsentanz für adesso, Austausch zwischen Engineering-Teams gestärkt.',
     badge: 'Community',
-    icon: '🧑‍🤝‍🧑'
+    icon: '🧑🤝🧑'
   },
   {
     title: 'Hohe Verlässlichkeit',
@@ -117,12 +121,76 @@ const engagement = [
   }
 ];
 
+const workingFacts = [
+  {
+    title: 'Überstunden 2025',
+    value: '226,3 Stunden',
+    detail: 'Transparente Dokumentation der Mehrarbeit – Commitment trotz voller Auslastung.',
+    icon: '⏱️'
+  },
+  {
+    title: 'Regressystem-Verlinkung',
+    value: 'Weiterleitung aktiv',
+    detail: 'Der Projekteintrag leitet direkt zu https://www.regress.adesso.claims.',
+    icon: '🔗'
+  },
+  {
+    title: 'PDF-Speicherung',
+    value: 'Deaktiviert',
+    detail: 'Kein PDF-Export: Inhalte bleiben bewusst nur auf der Seite sichtbar.',
+    icon: '🚫'
+  }
+];
+
+const seniorChecklist = [
+  {
+    title: 'Planung, Organisation & Führung',
+    icon: '🧭',
+    items: [
+      { label: 'Projekte strukturiert planen, Risiken früh adressieren', done: false },
+      { label: 'Aufgaben verteilen, Fortschritt transparent machen', done: true },
+      { label: 'Stakeholder koordinieren und Erwartungen aktiv managen', done: false },
+      { label: 'Teamentscheidungen moderieren und Konflikte lösen', done: false }
+    ]
+  },
+  {
+    title: 'Kommunikation & Business-Wert',
+    icon: '🗣️',
+    items: [
+      { label: 'Empfehlungen klar begründen und Missverständnisse vermeiden', done: true },
+      { label: 'Schwierige Gespräche konstruktiv führen', done: false },
+      { label: 'Business-Impact von Tech-Entscheidungen bewerten', done: false },
+      { label: 'Messbare Projekterfolge und Effekte belegen', done: true }
+    ]
+  },
+  {
+    title: 'Technische Exzellenz & Qualität',
+    icon: '🛠️',
+    items: [
+      { label: 'Verantwortung für ein Kerngebiet übernehmen', done: true },
+      { label: 'Standards definieren, Experimente steuern, Guardrails setzen', done: false },
+      { label: 'Wissen teilen (Talks, Playbooks, Coaching)', done: true },
+      { label: 'Risiken im Projekt früh erkennen und Maßnahmen umsetzen', done: false }
+    ]
+  },
+  {
+    title: 'Selbstorganisation & Fokus',
+    icon: '🎯',
+    items: [
+      { label: 'Prioritäten setzen und Fortschritt messbar halten', done: true },
+      { label: 'Fokuszeiten blocken, Ablenkungen reduzieren', done: false },
+      { label: 'Vielfältige Aufgaben parallel bewältigen', done: true },
+      { label: 'Regelmäßiges Feedback aktiv einholen', done: false }
+    ]
+  }
+];
+
 const outlook = [
   'Architekturverantwortung weiter ausbauen und Entscheidungswege beschleunigen.',
   'Plattform-Idee konkretisieren und mit Business-Ownership verankern.',
   'Sichtbarkeit von Tech-Beiträgen erhöhen (Demos, Lightning Talks, Playbooks).',
   'Community & Lehre fortführen (Codebuzz, Universität Leipzig).',
-  'Gezielte Weiterbildung in Security & Plattformarchitektur einplanen.'
+  'Gezielte Weiterbildung in Security & Plattformarchitektur einplanen, um die Senior-Rolle zu erreichen.'
 ];
 
 export default function App() {
@@ -143,13 +211,11 @@ export default function App() {
           <div className="relative grid gap-6 md:grid-cols-[2fr,1fr] md:items-start">
             <div className="space-y-4">
               <Badge color="primary">Jahresrückblick 2025 – Karim Rakia</Badge>
-              <h2 className="text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
-                Fokus auf Delivery, Architektur und Wirkung
-              </h2>
+              <h2 className="text-3xl font-bold leading-tight text-slate-900 md:text-4xl">Auf dem Weg zum Senior Engineer</h2>
               <p className="text-lg leading-relaxed text-slate-700">
-                2025 war geprägt von tiefem technischen Ownership, klaren Entscheidungen und hohem Engagement. Die Seite zeigt,
-                wie ich Projekte vorangetrieben, Stakeholder überzeugt und unsere technologische Basis gestärkt habe – bereit,
-                Verantwortung weiter zu skalieren.
+                2025 war geprägt von tiefem technischen Ownership, klaren Entscheidungen und hohem Engagement. Ich bin noch kein
+                Senior Engineer – arbeite aber gezielt daran, die Anforderungen Schritt für Schritt zu erfüllen, ohne PDF-Export
+                und mit klar dokumentierter Arbeitslast.
               </p>
               <div className="flex flex-wrap gap-3 text-sm text-slate-700">
                 <Badge color="secondary">Delivery</Badge>
@@ -157,13 +223,19 @@ export default function App() {
                 <Badge color="neutral">Wirkung & Ownership</Badge>
               </div>
               <div className="flex flex-wrap gap-3">
-                <PrintButton />
                 <a
                   href="#projects"
                   className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:border-primary hover:bg-primary/5"
                 >
                   Zu den Projekten
                   <span aria-hidden>↘</span>
+                </a>
+                <a
+                  href="#senior"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800"
+                >
+                  Senior-Checkliste öffnen
+                  <span aria-hidden>☑️</span>
                 </a>
               </div>
             </div>
@@ -188,16 +260,31 @@ export default function App() {
               </div>
               <div className="flex items-center justify-between rounded-xl bg-slate-50 px-4 py-3">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Engagement</p>
-                  <p className="text-sm text-slate-700">Vorlesung, Codebuzz, volle Auslastung</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Commitment</p>
+                  <p className="text-sm text-slate-700">226,3h Überstunden · kein PDF-Export</p>
                 </div>
                 <span className="text-2xl" aria-hidden>
-                  🌟
+                  ⏱️
                 </span>
               </div>
             </div>
           </div>
         </motion.section>
+
+        <Section
+          id="work"
+          eyebrow="Rahmenbedingungen"
+          title="Arbeitslast & verbindliche Vorgaben"
+          description="Transparenz zu Überstunden, Weiterleitungen und dem bewussten Verzicht auf PDF-Speicherung."
+        >
+          <div className="grid gap-4 md:grid-cols-3">
+            {workingFacts.map((fact) => (
+              <Card key={fact.title} title={fact.title} icon={fact.icon} badge={fact.value} badgeColor="primary">
+                <p className="text-sm text-slate-700">{fact.detail}</p>
+              </Card>
+            ))}
+          </div>
+        </Section>
 
         <Section
           id="projects"
@@ -214,6 +301,7 @@ export default function App() {
                 badge={project.badge}
                 badgeColor={project.badgeColor}
                 icon={project.icon}
+                href={project.href}
               >
                 <ul className="space-y-2 text-slate-700">{project.items.map((item) => listItem(item))}</ul>
               </Card>
@@ -276,9 +364,38 @@ export default function App() {
             {engagement.map((item) => (
               <Card key={item.title} title={item.title} subtitle={item.detail} badge={item.badge} badgeColor="secondary" icon={item.icon}>
                 <p>
-                  <span className="font-semibold text-primary">Wirkung:</span> Verantwortung gezeigt, Austausch gefördert und
-                  Präsenz bewiesen.
+                  <span className="font-semibold text-primary">Wirkung:</span> Verantwortung gezeigt, Austausch gefördert und Präsenz bewiesen.
                 </p>
+              </Card>
+            ))}
+          </div>
+        </Section>
+
+        <Section
+          id="senior"
+          eyebrow="Zielbild"
+          title="Checkliste für den Schritt zum Senior Engineer"
+          description="Alle Punkte, die es braucht – klar benannt und abhakbar, um Fortschritt transparent zu machen."
+        >
+          <div className="grid gap-4 md:grid-cols-2">
+            {seniorChecklist.map((category) => (
+              <Card key={category.title} title={category.title} icon={category.icon} badge="Senior Track" badgeColor="secondary">
+                <ul className="space-y-3">
+                  {category.items.map((item) => (
+                    <li key={item.label} className="flex gap-3 rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
+                      <input
+                        type="checkbox"
+                        checked={item.done}
+                        readOnly
+                        className="mt-1 h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary"
+                      />
+                      <div>
+                        <p className="text-sm font-medium text-slate-900">{item.label}</p>
+                        <p className="text-xs text-slate-600">{item.done ? 'Erfüllt' : 'Offen'}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </Card>
             ))}
           </div>
@@ -298,9 +415,7 @@ export default function App() {
               <h3 className="text-xl font-semibold text-slate-900">Fokussierte Roadmap</h3>
             </div>
             <ul className="space-y-2 text-sm text-slate-700">{outlook.map((item) => listItem(item))}</ul>
-            <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">
-              Print-optimiert: Mit einem Klick auf „Als PDF speichern“ direkt exportierbar.
-            </p>
+            <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Keine PDF-Speicherung vorgesehen – Fortschritt bleibt auf dieser Seite transparent.</p>
           </div>
         </Section>
       </main>
