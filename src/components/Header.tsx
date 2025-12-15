@@ -1,12 +1,11 @@
 const navItems = [
   { id: 'hero', label: 'Hero' },
   { id: 'lead-project', label: 'Regressystem' },
-  { id: 'delivery', label: 'Delivery' },
-  { id: 'innovation', label: 'Innovation' },
-  { id: 'stakeholder', label: 'Business' },
-  { id: 'growth', label: 'Engineering' },
-  { id: 'engagement', label: 'Engagement' },
-  { id: 'vision', label: 'Vision 2026' }
+  { id: 'gesamt-timeline', label: 'Timeline' },
+  { id: 'strategic-delivery', label: 'Strategic Delivery' },
+  { id: 'controlling', label: 'Controlling Tool' },
+  { id: 'genai', label: 'GenAI & Plattform' },
+  { id: 'arbeitsweise', label: 'Arbeitsweise' }
 ];
 
 export function Header() {
@@ -15,7 +14,7 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Jahresrückblick 2025</p>
-          <h1 className="text-lg font-bold text-slate-900">Karim Rakia · Auf dem Weg zum Senior Engineer</h1>
+          <h1 className="text-lg font-bold text-slate-900">Karim Rakia · Architektur & Delivery</h1>
         </div>
         <nav className="hidden items-center gap-3 md:flex">
           {navItems.map((item) => (
