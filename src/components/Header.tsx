@@ -1,12 +1,12 @@
 const navItems = [
-  { id: 'intro', label: 'Intro' },
-  { id: 'work', label: 'Arbeitslast' },
-  { id: 'projects', label: 'Beiträge' },
+  { id: 'hero', label: 'Hero' },
+  { id: 'lead-project', label: 'Regressystem' },
+  { id: 'delivery', label: 'Delivery' },
+  { id: 'innovation', label: 'Innovation' },
   { id: 'stakeholder', label: 'Business' },
-  { id: 'tech', label: 'Tech' },
+  { id: 'growth', label: 'Engineering' },
   { id: 'engagement', label: 'Engagement' },
-  { id: 'senior', label: 'Senior-Pfad' },
-  { id: 'outlook', label: 'Ausblick' }
+  { id: 'vision', label: 'Vision 2026' }
 ];
 
 export function Header() {
