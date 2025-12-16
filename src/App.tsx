@@ -19,8 +19,8 @@ const impactStats = [
   },
   {
     label: 'Auslastung & Fokus',
-    value: '>226h Mehrarbeit · volle Auslastung 2025',
-    detail: 'Priorisiert auf Delivery, kaum Krankheitstage, klare Transparenz für Stakeholder.'
+    value: '226h Überstunden · Vertrag 6 Monate auf 44h/Woche verlängert',
+    detail: 'Priorisiert auf Delivery, kaum Krankheitstage.'
   }
 ];
 
@@ -83,6 +83,7 @@ const strategicDelivery = [
     points: [
       'Versionierung, Gates für Breaking Changes und klare Dokumentation etabliert.',
       'Performance durch Caching-Strategie und schlanke Payloads verbessert.',
+      'Services mit ML-KEM-Verschlüsselung (NASA-Niveau) abgesichert.',
       'Quality-Sessions mit AFM, Verantwortung transparent gemacht.'
     ]
   },
@@ -134,9 +135,9 @@ const genAIItems = [
     badge: 'Story',
     icon: '🌐',
     points: [
-      'Idee bei Mohamad Amara, Moritz Moll, Michael Gutbier platziert.',
-      'Präsentations-Webseite gebaut und geteilt: https://sepromarketplace.vercel.app/.',
-      'Monetarisierungspfad diskutiert, Anschluss an Allianz vorbereitet.'
+      'Vorstellung bei Mohamad Amara, Moritz Moll und Michael Gutbier. MVP-Webseite umgesetzt: https://sepromarketplace.vercel.app/.',
+      'Die Plattform verbindet KMU mit IT-Dienstleistern zur gemeinsamen Entwicklung und Lizensierung von Softwareprodukten. adesso agiert dabei als kuratierender Enabler.',
+      'Besonders relevant: In einem zunehmend regulierten Marktumfeld bietet die Plattform auch Raum, um Regularien und digitale Standards kooperativ zu entwickeln – statt isoliert oder gar gegeneinander. Ziel ist es, deutsche Unternehmen global wettbewerbsfähig zu halten und Innovationskraft aus der Mitte heraus zu skalieren.'
     ]
   }
 ];
@@ -212,9 +213,9 @@ export default function App() {
         >
           <div className="grid gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
             <p className="text-sm text-slate-700">
-              Das Tool bleibt im laufenden Betrieb stabil: Deployments sichern Verfügbarkeit, die Architektur ist dokumentiert, und
-              Code-Reviews halten die Frontend-Qualität hoch. Zusammen mit Jonathan entsteht eine neue Vision, die Daten nicht nur
-              vektorisiert, sondern für Prompt-Analysen nutzt und perspektivisch ans Regressystem andockt. Testlauf ist vorbereitet.
+              Das Tool bleibt im laufenden Betrieb stabil: Deployments sichern Verfügbarkeit und Code-Reviews halten die
+              Frontend-Qualität hoch. Zusammen mit Jonathan entsteht eine neue Vision, die Daten nicht nur vektorisiert, sondern
+              für Prompt-Analysen nutzt und perspektivisch ans Regressystem andockt. Testlauf ist vorbereitet.
             </p>
             <ul className="grid gap-2 text-sm text-slate-700 md:grid-cols-2">
               {controllingDetails.map((detail) => (
@@ -232,7 +233,7 @@ export default function App() {
           id="genai"
           eyebrow="GenAI & Plattform"
           title="End-to-End AI-Flows und Plattformökonomie"
-          description="Governance, Prompt-Pipelines und Monetarisierungspfad – abgestimmt mit Direktion und Business Leads."
+          description="Governance, Prompt-Pipelines und Plattformstory – abgestimmt mit Direktion und Business Leads."
           items={genAIItems}
         />
 

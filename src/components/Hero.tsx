@@ -89,7 +89,6 @@ export function Hero({ name, title, statement, stats }: HeroProps) {
               {stat.detail ? <p className="text-sm text-slate-700">{stat.detail}</p> : null}
             </motion.div>
           ))}
-          <p className="text-xs text-slate-500">PDF-Export bewusst deaktiviert – Fokus auf live geführtes Gespräch.</p>
         </div>
       </motion.div>
     </section>
